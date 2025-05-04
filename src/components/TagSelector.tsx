@@ -21,21 +21,28 @@ const TagSelector: React.FC<Props> = ({ selectedTags, onToggleTag, className }) 
             key={tag.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
+            transition={{ 
+              delay: index * 0.05,
+              type: "spring", 
+              stiffness: 300,
+              damping: 15
+            }}
           >
-            <button
+            <motion.button
               type="button"
               onClick={() => onToggleTag(tag.id)}
               className={cn(
-                `food-tag cursor-pointer`,
+                `food-tag cursor-pointer shadow-sm transition-all`,
                 isSelected 
-                  ? `bg-${tag.color} text-white` 
+                  ? `bg-gradient-to-r from-${tag.color} to-${tag.color}/80 text-white` 
                   : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
               )}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="mr-1">{tag.emoji}</span>
+              <span className="mr-2 text-lg">{tag.emoji}</span>
               {tag.name}
-            </button>
+            </motion.button>
           </motion.div>
         );
       })}
