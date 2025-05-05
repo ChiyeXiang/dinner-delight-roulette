@@ -20,6 +20,7 @@ const DEFAULT_OPTIONS: DinnerOption[] = [
   { id: '3', name: 'Salad', tags: ['healthy', 'quick'], weight: 2, lastChosen: null },
   { id: '4', name: 'Sushi', tags: ['fancy'], weight: 5, lastChosen: null },
   { id: '5', name: 'Tacos', tags: ['spicy', 'budget'], weight: 4, lastChosen: null },
+  { id: '6', name: 'Steak', tags: ['homemade'], weight: 3, lastChosen: null }
 ];
 
 // Context type definition
